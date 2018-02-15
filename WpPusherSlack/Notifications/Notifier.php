@@ -22,11 +22,8 @@ class Notifier
             return null;
         }
 
-        // Add channel, including hashtag, to url.
-        $fullUrl = add_query_arg(array('channel' => '%23' . $channel), $url);
-
-        $result = wp_remote_post($fullUrl, array(
-            'body' => $notification->getMessage()
+        $result = wp_remote_post($url, array(
+            'body' => json_encode(array('text' => $notification->getMessage(), 'channel' => $channel))
         ));
     }
 }

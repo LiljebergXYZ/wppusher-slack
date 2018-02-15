@@ -11,7 +11,7 @@ class SlackbotUrl implements Setting
     {
         add_settings_field(
             'wppusher-slack-post-url',
-            'Slackbot URL',
+            'Webhook URL',
             array($this, 'display'),
             'wppusher-slack',
             'wppusher-slack'
